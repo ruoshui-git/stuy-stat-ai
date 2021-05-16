@@ -24,7 +24,7 @@ def winner(board: Board) -> Optional[Player]:
 
 
 def is_filled(board: Board) -> bool:
-    return board.count(None) == 0
+    return all(spot is not None for spot in board)
 
 
 xwins = 0
@@ -119,7 +119,7 @@ def count_unique_boards(board: Board = EMPTY_BOARD) -> int:
     return nboards
 
 
-if __name__ == "__main__":
+def print_counts():
 
     print(f'total games: {count_games()}')
     print(f'{xwins=}')
